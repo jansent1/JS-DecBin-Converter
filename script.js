@@ -9,7 +9,10 @@ const decimalToBinary = (input) => {
   const quotients = [];
   const inputs = [];
   const remainders = [];
-  input = 0;
+  if (input === 0) {
+    result.innerText = "0";
+    return;
+  }
   while (input > 0) {
     const quotient = Math.floor(input / 2);
     // Add the Data/Results to the Arrays:
