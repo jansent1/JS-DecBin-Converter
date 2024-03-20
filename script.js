@@ -5,6 +5,17 @@ const result = document.getElementById("result");
 
 // Converter Function:
 const decimalToBinary = (input) => {
+  let binary = "";
+  if (input === 0) {
+    binary = "0";
+  }
+  while (input > 0) {
+    binary = (input % 2) + binary;
+    input = Math.floor(input / 2);
+  }
+
+  result.innerText = binary;
+  /*
   // Create Arrays to store results:
   const quotients = [];
   const inputs = [];
@@ -30,6 +41,8 @@ const decimalToBinary = (input) => {
   console.log("Remainders: ", remainders);
   // Display the result value inside the HTML Element:
   result.innerText = remainders.reverse().join("");
+};
+*/
 };
 
 // setup to check the value in the number input element whenever the user clicks the Convert button:
