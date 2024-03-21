@@ -41,10 +41,8 @@ const countDownAndUp = (number) => {
 // Converter Function:
 const decimalToBinary = (input) => {
   // Version 3.0 (with recursion):
-  if (input === 0) {
-    return "0";
-  } else if (input === 1) {
-    return "1";
+  if (input === 0 || input === 1) {
+    return String(input);
   } else {
     return decimalToBinary(Math.floor(input / 2)) + (input % 2);
   }
