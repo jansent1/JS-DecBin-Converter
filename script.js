@@ -1,10 +1,53 @@
+/*
+// CallStack example:
+const callStack = [
+  'a(): returns "freeCodeCamp " + b()',
+  `b(): returns "is " + c()`,
+  `c(): returns "awesome!"`,
+];
+
+const a = () => {
+  return "freeCodeCamp " + b();
+};
+const b = () => {
+  return "is " + c();
+};
+
+const c = () => {
+  return "awesome!";
+};
+
+console.log(a());
+*/
 // Variables for the HTML Elements:
 const numberInput = document.getElementById("number-input");
 const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("result");
 
+/*
+// Count down from a given number to zero:
+const countDownAndUp = (number) => {
+  console.log(number);
+  if (number === 0) {
+    console.log("Reached base case");
+    return;
+  } else {
+    countDownAndUp(number - 1);
+    console.log(number);
+  }
+};
+*/
+
 // Converter Function:
 const decimalToBinary = (input) => {
+  // Version 3.0 (with recursion):
+  if (input === 0) {
+    return "0";
+  } else {
+    return decimalToBinary(Math.floor(input / 2)) + (input % 2);
+  }
+
+  /* Version 2.0: 
   let binary = "";
   if (input === 0) {
     binary = "0";
@@ -13,9 +56,10 @@ const decimalToBinary = (input) => {
     binary = (input % 2) + binary;
     input = Math.floor(input / 2);
   }
-
   result.innerText = binary;
-  /*
+
+  */
+  /* Version 1.0:
   // Create Arrays to store results:
   const quotients = [];
   const inputs = [];
@@ -55,7 +99,7 @@ const checkUserInput = () => {
     return;
   }
 
-  decimalToBinary(parseInt(numberInput.value));
+  result.textContent = decimalToBinary(parseInt(numberInput.value));
   // Delete previous number before entering next one:
   numberInput.value = "";
 };
